@@ -107,7 +107,7 @@ async function doEnrollOnce(page) {
 
   // PAGE 6: "Add a course"
   const addCourseBtnSel =
-    'body > form > div:nth-child(1) > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr > td > table:nth-child(11) > tbody > tr:nth-child(1) > td:nth-child(2) > div > input[type=image]';
+    'body > form > div:nth-child(1) > table > tbody > tr:nth-child(4) > td:nth-child(2) > table > tbody > tr > td > table:nth-child(11) > tbody > tr:nth-child(1) > td:nth-child(3) > div > input[type=image]';
   await page.waitForSelector(addCourseBtnSel, { timeout: 30000 });
   await page.waitForTimeout(1000); // wait 1s before clicking add course
   await page.click(addCourseBtnSel);
