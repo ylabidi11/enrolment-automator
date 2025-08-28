@@ -114,7 +114,7 @@ async function doEnrollOnce(page) {
 
   // PAGE 7: enter catalogue number + submit
   const catalogInputSel = '#catalogNr';
-  const addCourseSubmitSel = '#addCourseAction';
+  const addCourseSubmitSel = '#transferCourseAction';
   await page.waitForSelector(catalogInputSel, { timeout: 30000 });
   await page.fill(catalogInputSel, CATALOGUE_NUMBER);
   await page.waitForTimeout(1000); // wait 1s before clicking add course submit
@@ -133,7 +133,7 @@ async function doEnrollOnce(page) {
   await page.waitForSelector(resultSel, { timeout: 30000 });
   const resultText = (await page.textContent(resultSel))?.trim() || '';
 
-  const isFailure = /The course has not been added\./i.test(resultText);
+  const isFailure = /The course has not been trasnfered\./i.test(resultText);
   return { success: !isFailure, message: resultText };
 }
 
