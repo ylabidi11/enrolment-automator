@@ -47,14 +47,14 @@ function inQuietHours(d = new Date()) {
   return h >= 0 && h < 8; // 00:00–07:59
 }
 function nextDelayMs() {
-  const base = 15 * 60 * 1000;                     // 15 min
-  const jitter = Math.floor(Math.random() * (20 * 60 * 1000)); // 0–20 min
-  return base + jitter;                             // 15–35 min
+  const base = 48 * 60 * 1000;                     // 48 min
+  const jitter = Math.floor(Math.random() * (30 * 60 * 1000)); // 0–30 min
+  return base + jitter;                             // 48–78 min
 }
 function scheduleNext(fn) {
   const delay = nextDelayMs();
   const when = new Date(Date.now() + delay);
-  console.log(`Next attempt in ${(delay/60000).toFixed(1)} min @ ${when.toLocaleString()}`);
+  console.log(`Next attempt in ${(delay / 60000).toFixed(1)} min @ ${when.toLocaleString()}`);
   setTimeout(fn, delay);
 }
 
